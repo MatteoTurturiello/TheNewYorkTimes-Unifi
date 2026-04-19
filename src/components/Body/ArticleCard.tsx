@@ -12,12 +12,13 @@ interface Article {
 
 interface ArticleCardProps {
     article: Article;
+    size?: 'featured' | 'medium' | 'sidebar';
 }
 
-const ArticleCard: React.FC<ArticleCardProps> = ({ article }) => {
+const ArticleCard: React.FC<ArticleCardProps> = ({ article, size = 'medium' }) => {
     return (
-        <a href="#" className="article-link">
-            <article className="article-card">
+        <a href="#" className={`article-link article-link--${size}`}>
+            <article className={`article-card article-card--${size}`}>
                 <div className="article-image-container">
                     <img src={article.image} alt={article.title} className="article-image" />
                 </div>

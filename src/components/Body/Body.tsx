@@ -15,16 +15,32 @@ interface BodyProps {
     articles: Article[];
 }
 
-
-
-
 const Body: React.FC<BodyProps> = ({ articles }) => {
+    const featuredArticle = articles[0];
+    const mainArticles = articles.slice(1, 9);
+    const sidebarArticles = articles.slice(9);
+
     return (
         <div className="body-container">
-            <div className="articles-grid">
-                {articles.map((article) => (
-                    <ArticleCard key={article.id} article={article} />
-                ))}
+            <div className="body-layout">
+                {/* Left main column */}
+                <main className="body-main">
+                    <div className="featured-wrapper">
+                        <ArticleCard article={featuredArticle} size="featured" />
+                    </div>
+                    <div className="main-articles-grid">
+                        {mainArticles.map((article) => (
+                            <ArticleCard key={article.id} article={article} size="medium" />
+                        ))}
+                    </div>
+                </main>
+
+                {/* Right sidebar */}
+                <aside className="body-sidebar">
+                    {sidebarArticles.map((article) => (
+                        <ArticleCard key={article.id} article={article} size="sidebar" />
+                    ))}
+                </aside>
             </div>
         </div>
     );

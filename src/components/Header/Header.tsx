@@ -3,6 +3,7 @@ import { useScreenWidth } from '../../Screen/UseScreenWidth';
 import { Breakpoint } from '../../Screen/Breakpoint';
 import { HeaderDesktop } from './HeaderDesktop';
 import { HeaderMobile } from './HeaderMobile';
+import type { Language } from '../../types/Language';
 
 interface MenuItem {
     title: string;
@@ -12,8 +13,8 @@ interface MenuItem {
 interface HeaderProps {
     menuItems: MenuItem[];
     logo: string;
-    language: 'en' | 'it';
-    onLanguageToggle: (newLanguage: 'en' | 'it') => void;
+    language: Language;
+    onLanguageToggle: (newLanguage: Language) => void;
 }
 
 export const Header: React.FC<HeaderProps> = (props) => {

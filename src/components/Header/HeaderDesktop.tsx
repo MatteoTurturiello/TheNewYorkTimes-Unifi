@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { SearchBar } from './SearchBar';
 import './HeaderDesktop.css';
+import type { Language } from '../../types/Language';
 
 interface MenuItem {
     title: string;
@@ -10,11 +11,19 @@ interface MenuItem {
 interface HeaderDesktopProps {
     menuItems: MenuItem[];
     logo: string;
-    language: 'en' | 'it';
-    onLanguageToggle: (lang: 'en' | 'it') => void;
+    language: Language;
+    onLanguageToggle: (lang: Language) => void;
 }
 
 const NAV_HEIGHT = 48;
+
+const uiLabels: Record<Language, { todaysPaper: string; subscribe: string; logIn: string }> = {
+    en: { todaysPaper: "Today's Paper", subscribe: 'SUBSCRIBE', logIn: 'LOG IN' },
+    it: { todaysPaper: "Edizione di oggi", subscribe: 'ABBONATI', logIn: 'ACCEDI' },
+    es: { todaysPaper: "Edición de hoy", subscribe: 'SUSCRIBIRSE', logIn: 'ENTRAR' },
+};
+
+const dateLocale: Record<Language, string> = { en: 'en-US', it: 'it-IT', es: 'es-ES' };
 
 export const HeaderDesktop: React.FC<HeaderDesktopProps> = ({
     menuItems,
@@ -26,7 +35,9 @@ export const HeaderDesktop: React.FC<HeaderDesktopProps> = ({
     const [navSticky, setNavSticky] = useState(false);
     const topRef = useRef<HTMLDivElement>(null);
 
-    const dateString = new Date().toLocaleDateString('en-US', {
+    const t = uiLabels[language];
+
+    const dateString = new Date().toLocaleDateString(dateLocale[language], {
         weekday: 'long',
         year: 'numeric',
         month: 'long',
@@ -72,8 +83,9 @@ export const HeaderDesktop: React.FC<HeaderDesktopProps> = ({
     return (
         <>
             <header className="desktop-header">
-                {/* Top section: logo, search, buttons */}
+                {/* Top section: left info, logo, auth buttons */}
                 <div className="desktop-header-top" ref={topRef}>
+                    {/* Left: search toggle + inline search bar + date */}
                     <div className="desktop-header-left">
                         <button
                             className="search-toggle-btn"
@@ -81,34 +93,45 @@ export const HeaderDesktop: React.FC<HeaderDesktopProps> = ({
                             aria-label="Toggle search"
                             aria-expanded={isSearchOpen}
                         >
-                            <span className="material-symbols-outlined">
-                                {isSearchOpen ? 'close' : 'search'}
-                            </span>
+                            <span className="material-symbols-outlined">search</span>
                         </button>
-                        <div className="date-section">
-                            <span className="current-date">{dateString}</span>
-                            <a href="#" className="todays-paper-link">
-                                Today's Paper
-                            </a>
+                        <div className="desktop-left-content">
+                            {isSearchOpen && (
+                                <div className="desktop-inline-search">
+                                    <SearchBar language={language} compact />
+                                </div>
+                            )}
+                            <div className="date-section">
+                                <span className="current-date">{dateString}</span>
+                                <a href="#" className="todays-paper-link">
+                                    {t.todaysPaper}
+                                </a>
+                            </div>
                         </div>
                     </div>
 
+                    {/* Center: language buttons + logo */}
                     <div className="desktop-header-center">
+                        <div className="lang-buttons">
+                            {(['en', 'it', 'es'] as Language[]).map((lang) => (
+                                <button
+                                    key={lang}
+                                    className={`lang-btn${language === lang ? ' lang-btn--active' : ''}`}
+                                    onClick={() => onLanguageToggle(lang)}
+                                >
+                                    {lang.toUpperCase()}
+                                </button>
+                            ))}
+                        </div>
                         <h1 className="header-logo-text">The New York Times</h1>
                     </div>
 
+                    {/* Right: auth buttons */}
                     <div className="desktop-header-right">
-                        <button className="auth-btn subscribe-btn">SUBSCRIBE</button>
-                        <button className="auth-btn login-btn">LOG IN</button>
+                        <button className="auth-btn subscribe-btn">{t.subscribe}</button>
+                        <button className="auth-btn login-btn">{t.logIn}</button>
                     </div>
                 </div>
-
-                {/* Search panel */}
-                {isSearchOpen && (
-                    <div className="desktop-search-panel">
-                        <SearchBar language={language} />
-                    </div>
-                )}
 
                 {/* Nav bar – always rendered here to occupy space when not sticky */}
                 <nav className={`desktop-nav${navSticky ? ' desktop-nav--hidden' : ''}`}>

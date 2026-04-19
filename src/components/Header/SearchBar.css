@@ -8,7 +8,7 @@
     max-width: 1400px;
     margin: 0 auto;
     display: flex;
-    gap: 12px;
+    gap: 8px;
     align-items: center;
 }
 
@@ -45,6 +45,7 @@
     transition: all 0.2s ease;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    white-space: nowrap;
 }
 
 .search-go-btn.enabled:hover {
@@ -55,4 +56,28 @@
     background-color: #1976d2;
     opacity: 0.5;
     cursor: not-allowed;
+}
+
+/* ── Compact mode (inline in header) ── */
+.search-bar-container--compact {
+    background: none;
+    padding: 0 0 4px;
+    border: none;
+}
+
+.search-bar-container--compact .search-bar-content {
+    max-width: 260px;
+    margin: 0;
+    gap: 6px;
+}
+
+.search-bar-container--compact .search-input {
+    padding: 5px 8px;
+    font-size: 12px;
+    min-width: 0;
+}
+
+.search-bar-container--compact .search-go-btn {
+    padding: 5px 10px;
+    font-size: 11px;
 }

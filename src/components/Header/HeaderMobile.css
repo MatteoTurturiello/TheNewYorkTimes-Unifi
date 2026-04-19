@@ -10,6 +10,40 @@
     width: 100%;
 }
 
+/* ── Language buttons row ── */
+.mobile-lang-row {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    padding: 6px 16px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.mobile-lang-btn {
+    background: none;
+    border: 1px solid #ccc;
+    padding: 2px 7px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    cursor: pointer;
+    color: #555;
+    text-transform: uppercase;
+    transition: all 0.15s ease;
+    border-radius: 2px;
+}
+
+.mobile-lang-btn:hover {
+    border-color: #333;
+    color: #111;
+}
+
+.mobile-lang-btn--active {
+    border-color: #000;
+    color: #000;
+    background-color: #f0f0f0;
+}
+
 /* ── Logo row ── */
 .mobile-header-logo-row {
     display: flex;
@@ -159,4 +193,5 @@
 /* ── Search panel ── */
 .mobile-search-panel {
     border-top: 1px solid #e0e0e0;
+    padding: 8px 16px;
 }

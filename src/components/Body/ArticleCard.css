@@ -6,7 +6,6 @@
 
 .article-card {
     background-color: #fff;
-    border: 1px solid #e0e0e0;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -14,8 +13,13 @@
     height: 100%;
 }
 
-.article-card:hover {
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+/* ── Hover: text turns grey ── */
+.article-link:hover .article-title,
+.article-link:hover .article-description,
+.article-link:hover .article-category,
+.article-link:hover .article-read-more {
+    color: #888;
+    transition: color 0.2s ease;
 }
 
 .article-image-container {
@@ -37,7 +41,7 @@
 }
 
 .article-content {
-    padding: 16px;
+    padding: 12px 0;
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -49,24 +53,27 @@
     text-transform: uppercase;
     letter-spacing: 0.8px;
     color: #7d161e;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
+    transition: color 0.2s ease;
 }
 
 .article-title {
     font-family: 'Georgia', 'Times New Roman', serif;
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 700;
     line-height: 1.35;
     color: #111;
-    margin: 0 0 10px;
+    margin: 0 0 8px;
+    transition: color 0.2s ease;
 }
 
 .article-description {
-    font-size: 14px;
+    font-size: 13px;
     line-height: 1.6;
     color: #555;
-    margin: 0 0 16px;
+    margin: 0 0 12px;
     flex: 1;
+    transition: color 0.2s ease;
 }
 
 .article-footer {
@@ -74,18 +81,64 @@
     justify-content: space-between;
     align-items: center;
     border-top: 1px solid #f0f0f0;
-    padding-top: 10px;
+    padding-top: 8px;
     margin-top: auto;
 }
 
 .article-date {
-    font-size: 12px;
+    font-size: 11px;
     color: #888;
 }
 
 .article-read-more {
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 600;
     color: #111;
     letter-spacing: 0.2px;
+    transition: color 0.2s ease;
+}
+
+/* ── Featured article (large, top of main column) ── */
+.article-card--featured .article-image-container {
+    aspect-ratio: 16 / 9;
+}
+
+.article-card--featured .article-title {
+    font-size: 28px;
+    line-height: 1.25;
+    margin-bottom: 12px;
+}
+
+.article-card--featured .article-description {
+    font-size: 15px;
+}
+
+.article-card--featured .article-content {
+    padding: 16px 0;
+}
+
+/* ── Medium article (sub-grid in main column) ── */
+.article-card--medium .article-content {
+    padding: 10px 12px 0 0;
+}
+
+.article-card--medium .article-image-container {
+    aspect-ratio: 4 / 3;
+}
+
+/* ── Sidebar article (small, stacked in right column) ── */
+.article-card--sidebar .article-image-container {
+    aspect-ratio: 3 / 2;
+}
+
+.article-card--sidebar .article-title {
+    font-size: 15px;
+}
+
+.article-card--sidebar .article-description {
+    font-size: 12px;
+}
+
+.article-card--sidebar .article-content {
+    padding: 10px 0;
 }

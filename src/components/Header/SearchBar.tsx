@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
 import './SearchBar.css';
+import type { Language } from '../../types/Language';
 
 interface SearchBarProps {
-  language: 'en' | 'it';
+  language: Language;
+  compact?: boolean;
 }
 
-export const SearchBar: React.FC<SearchBarProps> = ({ language }) => {
+export const SearchBar: React.FC<SearchBarProps> = ({ language, compact = false }) => {
   const [searchValue, setSearchValue] = useState('');
 
-  const translations = {
+  const translations: Record<Language, { placeholder: string; go: string }> = {
     en: { placeholder: 'Search', go: 'Go' },
-    it: { placeholder: 'Cerca', go: 'Vai' }
+    it: { placeholder: 'Cerca', go: 'Vai' },
+    es: { placeholder: 'Buscar', go: 'Ir' }
   };
 
   const t = translations[language];
@@ -18,12 +21,11 @@ export const SearchBar: React.FC<SearchBarProps> = ({ language }) => {
   const handleSearch = () => {
     if (searchValue.trim()) {
       console.log('Search:', searchValue);
-      // Implement search logic here
     }
   };
 
   return (
-    <div className="search-bar-container">
+    <div className={`search-bar-container${compact ? ' search-bar-container--compact' : ''}`}>
       <div className="search-bar-content">
         <input
           type="text"

@@ -23,12 +23,22 @@
     box-sizing: border-box;
 }
 
-/* Left: search icon + date */
+/* Left: search icon + inline search + date */
 .desktop-header-left {
     display: flex;
     align-items: flex-start;
-    gap: 12px;
+    gap: 10px;
     flex: 0 0 auto;
+}
+
+.desktop-left-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.desktop-inline-search {
+    margin-bottom: 2px;
 }
 
 .search-toggle-btn {
@@ -41,6 +51,7 @@
     color: #333;
     transition: color 0.2s ease;
     font-size: 24px;
+    margin-top: 2px;
 }
 
 .search-toggle-btn:hover {
@@ -74,12 +85,46 @@
     text-decoration: underline;
 }
 
-/* Center: logo */
+/* Center: language buttons + logo */
 .desktop-header-center {
     flex: 1;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 6px;
+}
+
+/* ── Language buttons ── */
+.lang-buttons {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.lang-btn {
+    background: none;
+    border: 1px solid #ccc;
+    padding: 2px 7px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    cursor: pointer;
+    color: #555;
+    text-transform: uppercase;
+    transition: all 0.15s ease;
+    border-radius: 2px;
+}
+
+.lang-btn:hover {
+    border-color: #333;
+    color: #111;
+}
+
+.lang-btn--active {
+    border-color: #000;
+    color: #000;
+    background-color: #f0f0f0;
 }
 
 .header-logo-text {
@@ -130,11 +175,6 @@
 
 .login-btn:hover {
     background-color: #f0f0f0;
-}
-
-/* ── Search panel ── */
-.desktop-search-panel {
-    border-top: 1px solid #e0e0e0;
 }
 
 /* ── Navigation bar ── */
