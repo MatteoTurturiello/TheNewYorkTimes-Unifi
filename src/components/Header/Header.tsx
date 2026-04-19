@@ -22,7 +22,7 @@ export const Header: React.FC<HeaderProps> = ({
     const [activeDropdown, setActiveDropdown] = useState<number | null>(null);
     const [isSticky, setIsSticky] = useState(false);
 
-    React.useEffect(() => {
+    useEffect(() => {
         const handleScroll = () => {
             setIsSticky(window.scrollY > 100);
         };
