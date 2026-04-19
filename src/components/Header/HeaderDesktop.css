@@ -1,0 +1,246 @@
+/* =========================================================
+   Desktop / Tablet / Laptop Header
+   Applies to Breakpoint.tablet and above (>= 800px)
+   ========================================================= */
+
+/* Wrapper */
+.desktop-header {
+    background-color: white;
+    border-bottom: 1px solid #000;
+    width: 100%;
+}
+
+/* ── Top section (logo + search + auth buttons) ── */
+.desktop-header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    gap: 16px;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Left: search icon + date */
+.desktop-header-left {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    flex: 0 0 auto;
+}
+
+.search-toggle-btn {
+    background: none;
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: #333;
+    transition: color 0.2s ease;
+    font-size: 24px;
+}
+
+.search-toggle-btn:hover {
+    color: #666;
+}
+
+.date-section {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding-top: 2px;
+}
+
+.current-date {
+    font-size: 11px;
+    color: #666;
+    letter-spacing: 0.3px;
+}
+
+.todays-paper-link {
+    font-size: 11px;
+    color: #111;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    transition: color 0.2s ease;
+}
+
+.todays-paper-link:hover {
+    color: #666;
+    text-decoration: underline;
+}
+
+/* Center: logo */
+.desktop-header-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-logo-text {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-size: clamp(20px, 2.5vw, 32px);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: #000;
+    margin: 0;
+    white-space: nowrap;
+    cursor: default;
+    user-select: none;
+}
+
+/* Right: auth buttons */
+.desktop-header-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 0 0 auto;
+}
+
+.auth-btn {
+    padding: 8px 14px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.subscribe-btn {
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #000;
+}
+
+.subscribe-btn:hover {
+    background-color: #333;
+}
+
+.login-btn {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #000;
+}
+
+.login-btn:hover {
+    background-color: #f0f0f0;
+}
+
+/* ── Search panel ── */
+.desktop-search-panel {
+    border-top: 1px solid #e0e0e0;
+}
+
+/* ── Navigation bar ── */
+.desktop-nav {
+    border-top: 1px solid #e0e0e0;
+    background-color: white;
+    width: 100%;
+}
+
+.desktop-nav--hidden {
+    visibility: hidden;
+}
+
+/* Sticky version – fixed at top of viewport */
+.desktop-nav--fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    visibility: visible;
+    border-bottom: 1px solid #e0e0e0;
+    border-top: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    z-index: 999;
+}
+
+/* Nav list centered */
+.nav-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-width: 1400px;
+    box-sizing: border-box;
+}
+
+.nav-list--centered {
+    justify-content: center;
+    margin: 0 auto;
+}
+
+/* Nav items */
+.nav-item {
+    position: relative;
+}
+
+.nav-button {
+    background: none;
+    border: none;
+    padding: 12px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #333;
+    transition: color 0.2s ease;
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.nav-button:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
+/* ── Dropdown ── */
+.dropdown-container {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-top: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    min-width: 220px;
+    z-index: 1000;
+    animation: slideDown 0.15s ease;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.dropdown-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.dropdown-table tr:hover {
+    background-color: #f5f5f5;
+}
+
+.dropdown-cell {
+    padding: 10px 16px;
+    border-bottom: 1px solid #f0f0f0;
+    cursor: pointer;
+}
+
+.dropdown-cell:last-child {
+    border-bottom: none;
+}
+
+.dropdown-text {
+    font-size: 13px;
+    color: #333;
+    display: block;
+    white-space: nowrap;
+}
