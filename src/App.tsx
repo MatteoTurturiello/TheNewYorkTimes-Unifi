@@ -1,5 +1,6 @@
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import './App.css';
 import { ScreenWidthProvider } from './Screen/UseScreenWidth';
 import {Header} from './components/Header/Header';
 
