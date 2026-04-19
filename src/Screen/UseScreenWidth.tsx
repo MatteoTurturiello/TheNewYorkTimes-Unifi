@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { Breakpoint } from "./Breakpoint.tsx";
+import { Breakpoint } from "./Breakpoint";
 import type { AnyChildren } from "../types/AnyChildren";
 
 

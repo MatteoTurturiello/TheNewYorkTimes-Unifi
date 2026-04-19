@@ -1,6 +1,4 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Breakpoint } from '../../Screen/Breakpoint';
-import { useScreenWidth } from '../../Screen/UseScreenWidth';
 
 
 import './Header.css';
@@ -21,14 +19,8 @@ export const Header: React.FC<HeaderProps> = ({
                                                   menuItems = [],
                                                   logo = "logo.png"
                                               }) => {
-    const screenWidth = useScreenWidth();
     const [activeDropdown, setActiveDropdown] = useState<number | null>(null);
     const [isSticky, setIsSticky] = useState(false);
-
-    // Nascondi header su mobile e phablet
-    if (screenWidth === Breakpoint.mobile || screenWidth === Breakpoint.phablet) {
-        return null;
-    }
 
     React.useEffect(() => {
         const handleScroll = () => {
