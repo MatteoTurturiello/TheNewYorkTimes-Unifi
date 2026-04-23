@@ -24,10 +24,10 @@ const uiLabels: Record<Language, { readInApp: string; home: string }> = {
 const dateLocale: Record<Language, string> = { en: 'en-US', it: 'it-IT', es: 'es-ES' };
 
 export const HeaderMobile: React.FC<HeaderMobileProps> = ({
-                                                              menuItems,
-                                                              language,
-                                                              onLanguageToggle,
-                                                          }) => {
+    menuItems,
+    language,
+    onLanguageToggle,
+}) => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState<number | null>(null);
     const t = uiLabels[language];
