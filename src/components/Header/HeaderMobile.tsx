@@ -52,7 +52,9 @@ export const HeaderMobile: React.FC<HeaderMobileProps> = ({
                 <h1 className="mobile-logo-text">The New York Times</h1>
                 <button
                     className="mobile-square-icon-btn"
-                    aria-label="User button"
+                    type="button"
+                    aria-label="User menu unavailable"
+                    disabled
                 >
                     👤
                 </button>
