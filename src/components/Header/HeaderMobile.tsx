@@ -90,7 +90,7 @@ export const HeaderMobile: React.FC<HeaderMobileProps> = ({
                 <div className="mobile-sidebar-sections">
                     {menuItems.map((item, index) => (
                         <button
-                            key={item.title}
+                            key={`${item.title}-${index}`}
                             className={`mobile-sidebar-section-btn${activeDropdown === index ? ' mobile-sidebar-section-btn--active' : ''}`}
                             onClick={() =>
                                 setActiveDropdown(activeDropdown === index ? null : index)
