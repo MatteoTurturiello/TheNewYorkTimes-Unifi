@@ -48,8 +48,8 @@ body {
 .featured-wrapper {
     margin-right: 0;
     border-bottom: 1px solid #000;
-    padding-bottom: 20px;
-    margin-bottom: 20px;
+    padding-bottom: 28px;
+    margin-bottom: 28px;
 }
 
 /* ── Main articles sub-grid (3 columns) ── */
@@ -57,7 +57,7 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     column-gap: 1px;
-    row-gap: 0;
+    row-gap: 24px;
     background-color: #000; /* column dividers within main grid */
 }
 
@@ -65,7 +65,7 @@ body {
 .main-articles-grid .article-link {
     background-color: #f5f5f5;
     border-bottom: 1px solid #000;
-    padding-bottom: 16px;
+    padding-bottom: 22px;
     margin-bottom: 0;
 }
 
@@ -84,8 +84,8 @@ body {
 .body-sidebar .article-link {
     display: block;
     border-bottom: 1px solid #000;
-    padding-bottom: 16px;
-    margin-bottom: 16px;
+    padding-bottom: 22px;
+    margin-bottom: 22px;
 }
 
 .body-sidebar .article-link:last-child {

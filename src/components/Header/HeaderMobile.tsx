@@ -37,10 +37,6 @@ export const HeaderMobile: React.FC<HeaderMobileProps> = ({
         day: 'numeric',
     });
 
-    const handleUserButtonClick = () => {
-        window.open('https://www.nytimes.com/subscription', '_blank', 'noopener,noreferrer');
-    };
-
     return (
         <header className="mobile-header">
             <div className="mobile-header-main-row">
@@ -56,8 +52,7 @@ export const HeaderMobile: React.FC<HeaderMobileProps> = ({
                 <h1 className="mobile-logo-text">The New York Times</h1>
                 <button
                     className="mobile-square-icon-btn"
-                    onClick={handleUserButtonClick}
-                    aria-label="Open subscribe and login page"
+                    aria-label="User button"
                 >
                     👤
                 </button>
