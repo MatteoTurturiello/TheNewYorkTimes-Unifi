@@ -17,8 +17,8 @@ interface HeaderMobileProps {
 
 const uiLabels: Record<Language, { readInApp: string; home: string }> = {
     en: { readInApp: 'Read in the App', home: 'Home' },
-    it: { readInApp: "Leggi nell'app", home: 'Home' },
-    es: { readInApp: 'Leer en la app', home: 'Inicio' },
+    it: { readInApp: 'Read in the App', home: 'Home' },
+    es: { readInApp: 'Read in the App', home: 'Inicio' },
 };
 
 const dateLocale: Record<Language, string> = { en: 'en-US', it: 'it-IT', es: 'es-ES' };
@@ -32,9 +32,8 @@ export const HeaderMobile: React.FC<HeaderMobileProps> = ({
     const [activeDropdown, setActiveDropdown] = useState<number | null>(null);
     const t = uiLabels[language];
     const dateString = new Date().toLocaleDateString(dateLocale[language], {
-        weekday: 'long',
         year: 'numeric',
-        month: 'long',
+        month: 'short',
         day: 'numeric',
     });
 
