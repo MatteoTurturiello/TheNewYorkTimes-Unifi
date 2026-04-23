@@ -1,3 +1,5 @@
+/* Import mobile styles */
+@import './BodyMobile.css';
 * {
     box-sizing: border-box;
 }
