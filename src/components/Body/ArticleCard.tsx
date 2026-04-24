@@ -17,7 +17,7 @@ interface ArticleCardProps {
 
 const ArticleCard: React.FC<ArticleCardProps> = ({ article, size = 'medium' }) => {
     return (
-        <a href="#" className={`article-link article-link--${size}`}>
+        <a href="#" className={`article-link article-link--${size}`} onClick={(e) => e.preventDefault()}>
             <article className={`article-card article-card--${size}`}>
                 <div className="article-image-container">
                     <img src={article.image} alt={article.title} className="article-image" />

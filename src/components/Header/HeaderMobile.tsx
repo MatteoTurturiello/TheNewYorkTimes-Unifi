@@ -82,7 +82,7 @@ export const HeaderMobile: React.FC<HeaderMobileProps> = ({
                     <SearchBar language={language} compact />
                 </div>
 
-                <button className="mobile-sidebar-home-btn" onClick={() => setIsSidebarOpen(false)}>{t.home}</button>
+                <button type="button" className="mobile-sidebar-home-btn" onClick={() => setIsSidebarOpen(false)}>{t.home}</button>
 
                 <div className="mobile-sidebar-sections">
                     {menuItems.map((item, index) => (

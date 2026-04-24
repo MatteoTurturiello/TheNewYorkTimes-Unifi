@@ -28,7 +28,7 @@ body {
     grid-template-columns: 2fr 1fr;
     column-gap: 1px;
     background-color: #000; /* the 1px column gap becomes the visible vertical bar */
-    align-items: start;
+    align-items: stretch;
 }
 
 /* Each column gets a white background so the gap shows as the bar */
