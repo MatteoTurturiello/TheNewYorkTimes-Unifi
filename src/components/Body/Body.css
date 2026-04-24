@@ -58,7 +58,7 @@ body {
     grid-template-columns: repeat(3, 1fr);
     column-gap: 1px;
     row-gap: 24px;
-    background-color: #000; /* column dividers within main grid */
+    background-color: #f5f5f5; /* neutral background so row gaps are white, not black */
 }
 
 /* Each grid item has a white background and padding */
