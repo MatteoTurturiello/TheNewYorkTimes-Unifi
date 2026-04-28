@@ -82,32 +82,37 @@ export const HeaderMobile: React.FC<HeaderMobileProps> = ({
                     <SearchBar language={language} compact />
                 </div>
 
-                <button type="button" className="mobile-sidebar-home-btn" onClick={() => setIsSidebarOpen(false)}>{t.home}</button>
+                <button type="button" className="mobile-sidebar-home-btn" onClick={() => setIsSidebarOpen(false)}>
+                    <span>{t.home}</span>
+                </button>
 
                 <div className="mobile-sidebar-sections">
                     {menuItems.map((item, index) => (
-                        <button
-                            key={`${item.title}-${index}`}
-                            className={`mobile-sidebar-section-btn${activeDropdown === index ? ' mobile-sidebar-section-btn--active' : ''}`}
-                            onClick={() =>
-                                setActiveDropdown(activeDropdown === index ? null : index)
-                            }
-                            aria-expanded={activeDropdown === index}
-                        >
-                            {item.title}
-                        </button>
+                        <div key={`${item.title}-${index}`} className="mobile-sidebar-section">
+                            <button
+                                className="mobile-sidebar-section-btn"
+                                onClick={() =>
+                                    setActiveDropdown(activeDropdown === index ? null : index)
+                                }
+                                aria-expanded={activeDropdown === index}
+                            >
+                                <span>{item.title}</span>
+                                <span className="mobile-sidebar-section-arrow">
+                                    {activeDropdown === index ? '▲' : '▼'}
+                                </span>
+                            </button>
+                            {activeDropdown === index && (
+                                <ul className="mobile-sidebar-subitems">
+                                    {item.items.map((sub) => (
+                                        <li key={sub} className="mobile-sidebar-subitem">
+                                            {sub}
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
+                        </div>
                     ))}
                 </div>
-
-                {activeDropdown !== null && (
-                    <ul className="mobile-sidebar-subitems">
-                        {menuItems[activeDropdown].items.map((sub) => (
-                            <li key={sub} className="mobile-sidebar-subitem">
-                                {sub}
-                            </li>
-                        ))}
-                    </ul>
-                )}
 
                 <div className="mobile-sidebar-languages">
                     {(['en', 'it', 'es'] as Language[]).map((lang) => (

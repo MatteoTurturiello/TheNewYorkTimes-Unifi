@@ -4,6 +4,7 @@ import './App.css';
 import { ScreenWidthProvider } from './Screen/UseScreenWidth';
 import { Header } from './components/Header/Header';
 import Body from './components/Body/Body';
+import { Footer } from './components/Footer/Footer';
 import type { Language } from './types/Language';
 
 interface MenuItem {
@@ -106,6 +107,7 @@ export default function App() {
                 onLanguageToggle={handleLanguageToggle}
             />
             <Body articles={allArticles[language]} />
+            <Footer menuItems={menuItems[language]} language={language} />
         </ScreenWidthProvider>
     );
 }
